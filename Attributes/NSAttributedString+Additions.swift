@@ -9,26 +9,26 @@
 import UIKit
 
 extension NSAttributedString {
-	func added(_ attributes: AttributesValue) -> NSAttributedString {
+	public func with(attributes: AttributesValue) -> NSAttributedString {
 		let mutable = NSMutableAttributedString(attributedString: self)
 		mutable.addAttributes(attributes, range: NSRange(location: 0, length: self.string.count))
 		return NSAttributedString(attributedString: mutable)
 	}
 }
 
-protocol AttributedStringCompatible {
+public protocol AttributedStringCompatible {
 	var attributedString: NSAttributedString { get }
 }
 
 extension AttributedStringCompatible where Self: NSAttributedString {
-	var attributedString: NSAttributedString {
+	public var attributedString: NSAttributedString {
 		return self
 	}
 }
 
 extension NSAttributedString: AttributedStringCompatible {}
 
-func + (lhs: AttributedStringCompatible, rhs: AttributedStringCompatible) -> NSAttributedString {
+public func + (lhs: AttributedStringCompatible, rhs: AttributedStringCompatible) -> NSAttributedString {
 	let mutable = NSMutableAttributedString(attributedString: lhs.attributedString)
 	mutable.append(rhs.attributedString)
 	return NSAttributedString(attributedString: mutable)

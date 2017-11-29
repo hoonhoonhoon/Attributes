@@ -9,7 +9,7 @@
 import UIKit
 
 public struct Attributes<Target> {
-	let target: Target
+	public let target: Target
 	public init(_ target: Target) {
 		self.target = target
 	}
@@ -38,9 +38,9 @@ extension StringLiteralType {
 	}
 }
 
-typealias AttributesValue = [NSAttributedStringKey: Any]
+public typealias AttributesValue = [NSAttributedStringKey: Any]
 
-func + (lhs: AttributesValue, rhs: AttributesValue) -> AttributesValue {
+public func + (lhs: AttributesValue, rhs: AttributesValue) -> AttributesValue {
 	var attributes = lhs
 	for (key, value) in rhs {
 		attributes[key] = value
