@@ -9,10 +9,10 @@
 import UIKit
 
 extension Attributes where Target: UIColor {
-	var foreground: AttributesValue {
+	public var foreground: AttributesValue {
 		return [.foregroundColor: self.target]
 	}
-	var background: AttributesValue {
+	public var background: AttributesValue {
 		return [.backgroundColor: self.target]
 	}
 }
